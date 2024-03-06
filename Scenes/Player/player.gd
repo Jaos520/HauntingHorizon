@@ -1,8 +1,5 @@
 extends CharacterBody3D
 
-#@onready var gunRay = $playerModel/MainArmature/Skeleton3D/HeadBone/Camera3d/RayCast3d as RayCast3D
-#@onready var Cam = $playerModel/MainArmature/Skeleton3D/HeadBone/Camera3d as Camera3D
-
 @onready var gunRay = $Head/Camera3d/RayCast3d as RayCast3D
 @onready var Cam = $Head/Camera3d as Camera3D
 @onready var CamHead = $Head as Node3D
@@ -28,7 +25,6 @@ const JUMP_VELOCITY = 4.5
 
 var actionCarEnter = false
 var carObj = null
-var openDoorPosition
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -52,16 +48,17 @@ func _process(delta):
 func _physics_process(delta):
 	
 	if (actionCarEnter):
-		global_position = lerp(global_position, openDoorPosition.global_position, delta * 1)
-		rotation = lerp(rotation, openDoorPosition.rotation, delta * 1)
+		
+		self.global_transform.origin = carObj.global_transform.origin
+		self.global_transform.basis = carObj.global_transform.basis
+		self.rotation_degrees.y += 90
 		
 		if (!Anim["parameters/OneShot/active"]):
-			get_node("CollisionShape3d").disabled = true
 			actionCarEnter = false
 			carObj.controlActive = true
 		return
 	elif (carObj):
-		global_position = carObj.global_position
+		self.global_transform.origin = carObj.global_transform.origin
 		return
 	
 	# Add the gravity.
@@ -149,9 +146,9 @@ func animation_tree(speed : float, direction : Vector2):
 		Anim["parameters/StateMachine/conditions/run"] = true
 		Anim["parameters/TimeScale/scale"] = speed/RUN_SPEED
 	
-func carEnter(car, position):
+func carEnter(car):
+	get_node("CollisionShape3d").disabled = true
 	Anim["parameters/OneShot/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
 	actionCarEnter = true
 	carObj = car
-	openDoorPosition = position
 	

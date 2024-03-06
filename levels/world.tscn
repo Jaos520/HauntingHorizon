@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cstbo15mdv36n"]
+[gd_scene load_steps=7 format=3 uid="uid://cstbo15mdv36n"]
 
 [ext_resource type="PackedScene" uid="uid://7gv6q50fuutj" path="res://Scenes/Player/player.tscn" id="1_eisjc"]
-[ext_resource type="PackedScene" uid="uid://b2beijw8uuths" path="res://car.tscn" id="2_3g6oi"]
+[ext_resource type="PackedScene" uid="uid://b2beijw8uuths" path="res://Scenes/Car/carOld.tscn" id="2_3g6oi"]
 [ext_resource type="Environment" uid="uid://sewngcac3atw" path="res://SkyBoxes/default_env.tres" id="3_rvx5p"]
 [ext_resource type="PackedScene" uid="uid://dj26sacnhty4r" path="res://addons/devblocks/blocks/basic_block.tscn" id="4_kcd2f"]
 [ext_resource type="Script" path="res://levels/EventHandler.gd" id="5_nyoas"]
+[ext_resource type="PackedScene" uid="uid://br5dt2kbx11sw" path="res://Scenes/Car/car.tscn" id="6_rt3ck"]
 
 [node name="World" type="Node3D"]
 
@@ -12,7 +13,7 @@
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.407424, 0)
 
 [node name="Car" parent="." instance=ExtResource("2_3g6oi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 3.29605, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 3.29605, 5)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 visible = false
@@ -25,3 +26,6 @@ transform = Transform3D(96.1385, 0, 0, 0, 1, 0, 0, 0, 122.216, 0, -0.465386, 0)
 
 [node name="EventHandler" type="Node3D" parent="."]
 script = ExtResource("5_nyoas")
+
+[node name="car" parent="." instance=ExtResource("6_rt3ck")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5, 3, -1)
