@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_1w47b"]
 [ext_resource type="PackedScene" uid="uid://dbduds4bsaaby" path="res://Scenes/Bullet/Bullet.tscn" id="2_je25s"]
-[ext_resource type="PackedScene" uid="uid://cyhxn337jc8r3" path="res://player_model.tscn" id="3_b7cqs"]
+[ext_resource type="PackedScene" uid="uid://cyhxn337jc8r3" path="res://Scenes/Player/player_model.tscn" id="3_b7cqs"]
 [ext_resource type="Script" path="res://Scenes/Player/RayCast3d.gd" id="4_3jijc"]
 [ext_resource type="PackedScene" uid="uid://bxr34nmv5qe2v" path="res://Scenes/GUI.tscn" id="4_18axh"]
 
@@ -14,6 +14,7 @@ script = ExtResource("1_1w47b")
 _bullet_scene = ExtResource("2_je25s")
 
 [node name="playerModel" parent="." instance=ExtResource("3_b7cqs")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.910592, 0)

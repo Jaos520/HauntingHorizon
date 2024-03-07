@@ -4,7 +4,7 @@
 font_size = 10
 
 [sub_resource type="LabelSettings" id="LabelSettings_2al0p"]
-font_size = 8
+font_size = 25
 outline_size = 1
 outline_color = Color(0, 0, 0, 1)
 
