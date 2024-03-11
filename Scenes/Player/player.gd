@@ -1,66 +1,78 @@
+class_name Player
 extends CharacterBody3D
 
-@onready var gunRay = $Head/Camera3d/RayCast3d as RayCast3D
-@onready var Cam = $Head/Camera3d as Camera3D
-@onready var CamHead = $Head as Node3D
-@onready var CamPos = $playerModel/MainArmature/Skeleton3D/HeadBone/CamPos as Node3D
-@onready var Anim = $playerModel/AnimationTree as AnimationTree
-@onready var Model = $playerModel as Node3D
-@onready var GUI = $GUI/Label as Label
-@export var _bullet_scene : PackedScene
-var mouseSensibility = 200
-var mouse_relative_x = 0
-var mouse_relative_y = 0
-var speed = 0.0
-var camera_fov = 75.0
-var playerVelocity = 0.0
-
-var inputDir : Vector2
-
+#Параметры передвижения
 const CAMERA_FOV_DEF = 75.0
 const CAMERA_FOV_RUN = 90.0
 const WALK_SPEED = 2.0
 const RUN_SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
-var actionCarEnter = false
-var carObj = null
+#Режимы передвижения
+const MODE_DRIVE = "drive" #управление машиной
+const MODE_LEGS = "legs" #управление персонажем
+
+@export var _bullet_scene: PackedScene
+
+@onready var gun_ray := $Head/Camera3d/RayCast3d as RayCast3D
+@onready var cam := $Head/Camera3d as Camera3D
+@onready var cam_head := $Head as Node3D
+@onready var cam_pos := $playerModel/MainArmature/Skeleton3D/HeadBone/CamPos as Node3D
+@onready var anim := $playerModel/AnimationTree as AnimationTree
+@onready var model := $playerModel as Node3D
+@onready var gui_debug := $GUI/Label as Label
+
+var mouse_sensibility = 200
+var mouse_relative_x = 0
+var mouse_relative_y = 0
+var speed = 0.0
+var camera_fov = 75.0
+var player_velocity = 0.0
+var input_dir: Vector2
+var movement_mode: String
+var action_car_enter: bool = false
+var car_obj: Car = null
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready():
 	#Captures mouse and stops rgun from hitting yourself
-	gunRay.add_exception(self)
+	gun_ray.add_exception(self)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
-	Anim.active = true
-	Anim["parameters/Transition/transition_request"] = "legs"
+	movement_mode = MODE_LEGS
+	
+	anim.active = true
+	anim["parameters/Transition/transition_request"] = movement_mode
 
 func _process(delta):
 	# Camera fix
-	CamHead.global_transform.origin = CamPos.global_transform.origin
-	Cam.fov = camera_fov
+	cam_head.global_transform.origin = cam_pos.global_transform.origin
+	cam.fov = camera_fov
 	
-	animation_tree(playerVelocity, inputDir)
+	animation_tree(player_velocity, input_dir)
 	
 func _physics_process(delta):
 	
-	if (actionCarEnter):
+	
+	
+	
+	if (action_car_enter):
 		
-		self.global_transform.origin = carObj.global_transform.origin
-		self.rotation_degrees = carObj.rotation_degrees
-		self.rotation_degrees.y += 90
+		#self.global_transform.origin = carObj.global_transform.origin
+		#self.rotation_degrees = carObj.rotation_degrees
+		#self.rotation_degrees.y += 90
 		
-		if (!Anim["parameters/OneShot/active"]):
-			actionCarEnter = false
-			Anim["parameters/Transition/transition_request"] = "drive"
-			carObj.controlActive = true
+		action_car_enter = false
+		anim["parameters/Transition/transition_request"] = MODE_DRIVE
+		car_obj.controlActive = true
+			
 		return
-	elif (carObj):
-		self.global_transform.origin = carObj.global_transform.origin
-		self.rotation_degrees = carObj.rotation_degrees
-		self.rotation_degrees.y += 90
+	elif (car_obj):
+		#self.global_transform.origin = carObj.global_transform.origin
+		#self.rotation_degrees = carObj.rotation_degrees
+		#self.rotation_degrees.y += 90
 		animation_tree_drive()
 		return
 	
@@ -83,14 +95,14 @@ func _physics_process(delta):
 			camera_fov = lerp(camera_fov, CAMERA_FOV_DEF, 0.01)
 			speed = move_toward(speed, WALK_SPEED, 0.04)
 		
-		inputDir = Input.get_vector("moveLeft", "moveRight", "moveUp", "moveDown")
-		var direction = (transform.basis * Vector3(inputDir.x, 0, inputDir.y)).normalized()
+		input_dir = Input.get_vector("moveLeft", "moveRight", "moveUp", "moveDown")
+		var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 		if direction:
-			playerVelocity = speed
+			player_velocity = speed
 			velocity.x = direction.x * speed
 			velocity.z = direction.z * speed
 		else:
-			playerVelocity = lerp(playerVelocity, 0.0, 0.1)
+			player_velocity = lerp(player_velocity, 0.0, 0.1)
 			velocity.x = lerp(velocity.x, 0.0, 0.1)
 			velocity.z = lerp(velocity.z, 0.0, 0.1)
 	
@@ -100,69 +112,69 @@ func _physics_process(delta):
 func _input(event):
 	if event is InputEventMouseMotion:
 		
-		if (carObj):
-			Cam.rotation.y -= event.relative.x / mouseSensibility
-			Cam.rotation.y = clamp(Cam.rotation.y, deg_to_rad(0), deg_to_rad(180) )
+		if (car_obj):
+			cam.rotation.y -= event.relative.x / mouse_sensibility
+			cam.rotation.y = clamp(cam.rotation.y, deg_to_rad(0), deg_to_rad(180) )
 		else:
-			rotation.y -= event.relative.x / mouseSensibility
+			rotation.y -= event.relative.x / mouse_sensibility
 		
-		Cam.rotation.x -= event.relative.y / mouseSensibility
-		Cam.rotation.x = clamp(Cam.rotation.x, deg_to_rad(-80), deg_to_rad(90) )
+		cam.rotation.x -= event.relative.y / mouse_sensibility
+		cam.rotation.x = clamp(cam.rotation.x, deg_to_rad(-80), deg_to_rad(90) )
 		mouse_relative_x = clamp(event.relative.x, -50, 50)
 		mouse_relative_y = clamp(event.relative.y, -50, 10)
 
 func shoot():
-	if not gunRay.is_colliding():
+	if not gun_ray.is_colliding():
 		return
-	var bulletInst = _bullet_scene.instantiate() as Node3D
-	bulletInst.set_as_top_level(true)
-	get_parent().add_child(bulletInst)
-	bulletInst.global_transform.origin = gunRay.get_collision_point() as Vector3
-	bulletInst.look_at((gunRay.get_collision_point()+gunRay.get_collision_normal()),Vector3.BACK)
-	print(gunRay.get_collision_point())
-	print(gunRay.get_collision_point()+gunRay.get_collision_normal())
+	var bullet_inst = _bullet_scene.instantiate() as Node3D
+	bullet_inst.set_as_top_level(true)
+	get_parent().add_child(bullet_inst)
+	bullet_inst.global_transform.origin = gun_ray.get_collision_point() as Vector3
+	bullet_inst.look_at((gun_ray.get_collision_point()+gun_ray.get_collision_normal()),Vector3.BACK)
+	print(gun_ray.get_collision_point())
+	print(gun_ray.get_collision_point()+gun_ray.get_collision_normal())
 	
 func animation_tree(speed : float, direction : Vector2):
-	Anim["parameters/StateMachineLegs/Walk/blend_position"].x = move_toward(Anim["parameters/StateMachineLegs/Walk/blend_position"].x, direction.x, 0.1)
-	Anim["parameters/StateMachineLegs/Walk/blend_position"].y = move_toward(Anim["parameters/StateMachineLegs/Walk/blend_position"].y, direction.y, 0.1)
-	Anim["parameters/StateMachineLegs/Run/blend_position"].x = move_toward(Anim["parameters/StateMachineLegs/Run/blend_position"].x, direction.x, 0.1)
-	Anim["parameters/StateMachineLegs/Run/blend_position"].y = move_toward(Anim["parameters/StateMachineLegs/Run/blend_position"].y, direction.y, 0.1)
+	anim["parameters/StateMachineLegs/Walk/blend_position"].x = move_toward(anim["parameters/StateMachineLegs/Walk/blend_position"].x, direction.x, 0.1)
+	anim["parameters/StateMachineLegs/Walk/blend_position"].y = move_toward(anim["parameters/StateMachineLegs/Walk/blend_position"].y, direction.y, 0.1)
+	anim["parameters/StateMachineLegs/Run/blend_position"].x = move_toward(anim["parameters/StateMachineLegs/Run/blend_position"].x, direction.x, 0.1)
+	anim["parameters/StateMachineLegs/Run/blend_position"].y = move_toward(anim["parameters/StateMachineLegs/Run/blend_position"].y, direction.y, 0.1)
 	
 	
 	if speed <= 0.5:
-		Anim["parameters/StateMachineLegs/conditions/idle"] = true
-		Anim["parameters/StateMachineLegs/conditions/walk"] = false
-		Anim["parameters/StateMachineLegs/conditions/run"] = false
-		Anim["parameters/TimeScaleLegs/scale"] = 1.0
+		anim["parameters/StateMachineLegs/conditions/idle"] = true
+		anim["parameters/StateMachineLegs/conditions/walk"] = false
+		anim["parameters/StateMachineLegs/conditions/run"] = false
+		anim["parameters/TimeScaleLegs/scale"] = 1.0
 	elif speed <= WALK_SPEED:
-		Anim["parameters/StateMachineLegs/conditions/idle"] = false
-		Anim["parameters/StateMachineLegs/conditions/walk"] = true
-		Anim["parameters/StateMachineLegs/conditions/run"] = false
-		Anim["parameters/TimeScaleLegs/scale"] = (speed/WALK_SPEED) * 1.2
+		anim["parameters/StateMachineLegs/conditions/idle"] = false
+		anim["parameters/StateMachineLegs/conditions/walk"] = true
+		anim["parameters/StateMachineLegs/conditions/run"] = false
+		anim["parameters/TimeScaleLegs/scale"] = (speed/WALK_SPEED) * 1.2
 	elif speed > WALK_SPEED:
-		Anim["parameters/StateMachineLegs/conditions/idle"] = false
-		Anim["parameters/StateMachineLegs/conditions/walk"] = false
-		Anim["parameters/StateMachineLegs/conditions/run"] = true
-		Anim["parameters/TimeScaleLegs/scale"] = speed/RUN_SPEED
+		anim["parameters/StateMachineLegs/conditions/idle"] = false
+		anim["parameters/StateMachineLegs/conditions/walk"] = false
+		anim["parameters/StateMachineLegs/conditions/run"] = true
+		anim["parameters/TimeScaleLegs/scale"] = speed/RUN_SPEED
 	
 func animation_tree_drive():
-	if (carObj.steering > 0.05):
-		Anim["parameters/StateMachineDrive/conditions/idle"] = false
-		Anim["parameters/StateMachineDrive/conditions/left"] = true
-		Anim["parameters/StateMachineDrive/conditions/right"] = false
-	elif (carObj.steering < -0.05):
-		Anim["parameters/StateMachineDrive/conditions/idle"] = false
-		Anim["parameters/StateMachineDrive/conditions/left"] = false
-		Anim["parameters/StateMachineDrive/conditions/right"] = true
+	if (car_obj.steering > 0.05):
+		anim["parameters/StateMachineDrive/conditions/idle"] = false
+		anim["parameters/StateMachineDrive/conditions/left"] = true
+		anim["parameters/StateMachineDrive/conditions/right"] = false
+	elif (car_obj.steering < -0.05):
+		anim["parameters/StateMachineDrive/conditions/idle"] = false
+		anim["parameters/StateMachineDrive/conditions/left"] = false
+		anim["parameters/StateMachineDrive/conditions/right"] = true
 	else:
-		Anim["parameters/StateMachineDrive/conditions/idle"] = true
-		Anim["parameters/StateMachineDrive/conditions/left"] = false
-		Anim["parameters/StateMachineDrive/conditions/right"] = false
+		anim["parameters/StateMachineDrive/conditions/idle"] = true
+		anim["parameters/StateMachineDrive/conditions/left"] = false
+		anim["parameters/StateMachineDrive/conditions/right"] = false
 	
 func carEnter(car):
 	get_node("CollisionShape3d").disabled = true
-	Anim["parameters/OneShot/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
-	car.Anim["parameters/OneShot/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
-	actionCarEnter = true
-	carObj = car
+	#Anim["parameters/OneShot/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
+	#car.Anim["parameters/OneShot/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
+	action_car_enter = true
+	car_obj = car
 	

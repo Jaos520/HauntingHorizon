@@ -1,7 +1,6 @@
-[gd_scene load_steps=94 format=3 uid="uid://sv6fc4tbypo6"]
+[gd_scene load_steps=63 format=3 uid="uid://sv6fc4tbypo6"]
 
 [ext_resource type="Texture2D" uid="uid://dk4jft0oxo75" path="res://Scenes/Car/car_VehiclePack_BaseColor.png" id="1_7fs3f"]
-[ext_resource type="Script" path="res://Interactable.gd" id="1_gd1ar"]
 [ext_resource type="Script" path="res://Scenes/Car/Car.gd" id="1_w50p8"]
 [ext_resource type="Texture2D" uid="uid://o15a3tmlnqoj" path="res://Scenes/Car/car_VehiclePack_Emmision.png" id="2_en5p5"]
 [ext_resource type="Texture2D" uid="uid://27gfdss30734" path="res://Scenes/Car/car_VehiclePack_Metalnes-VehiclePack_Roughnes.png" id="3_mk6h0"]
@@ -638,9 +637,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ycdhk")
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_dh7s8"]
-data = PackedVector3Array(-0.2358, 0.5118, -1.1823, -0.0178, 0.0246, -0.0864, -0.2358, 0.5157, -0.6811, -0.2358, 0.5118, -1.1823, -0.0221, 0.0263, -1.1467, -0.0178, 0.0246, -0.0864, -0.0607, -0.0018, -0.0044, -0.0524, 0.0219, -1.1409, -0.0493, 0.0201, -0.0914, -0.0607, -0.0018, -0.0044, -0.0663, -0.0025, -1.1362, -0.0524, 0.0219, -1.1409, -0.094, -0.2889, -0.011, -0.0663, -0.0025, -1.1362, -0.0607, -0.0018, -0.0044, -0.094, -0.2889, -0.011, -0.094, -0.2889, -1.1272, -0.0663, -0.0025, -1.1362, -0.1258, -0.5396, 0.0014, -0.094, -0.2889, -1.1272, -0.094, -0.2889, -0.011, -0.1258, -0.5396, 0.0014, -0.1258, -0.5396, -1.107, -0.094, -0.2889, -1.1272, 0.0078, -0.0569, -0.8837, 0.0077, -0.0559, -1.0878, 0.0107, -0.0867, -0.9695, 0.0046, -0.0466, -0.1772, 0.0449, -0.0009, -0.177, 0.0004, -0.0041, -0.177, 0.0004, -0.0041, -0.127, 0.0449, -0.0008, -0.127, 0.0046, -0.0463, -0.1268, 0.0449, -0.0008, -0.127, 0.0249, 0.0127, -0.1383, 0.0428, 0.0141, -0.1487, 0.0449, -0.0008, -0.127, 0.0004, -0.0041, -0.127, 0.0249, 0.0127, -0.1383, 0.0046, -0.0466, -0.1772, 0.0449, -0.0008, -0.127, 0.0449, -0.0009, -0.177, 0.0046, -0.0466, -0.1772, 0.0046, -0.0463, -0.1268, 0.0449, -0.0008, -0.127, 0.0132, 0.0126, -0.1584, 0.0311, 0.0141, -0.1688, 0.0064, 0.1201, -0.1546, 0.0449, -0.0009, -0.177, 0.0428, 0.0141, -0.1487, 0.0311, 0.0141, -0.1688, 0.0449, -0.0009, -0.177, 0.0449, -0.0008, -0.127, 0.0428, 0.0141, -0.1487, 0.0004, -0.0041, -0.177, 0.0311, 0.0141, -0.1688, 0.0132, 0.0126, -0.1584, 0.0004, -0.0041, -0.177, 0.0449, -0.0009, -0.177, 0.0311, 0.0141, -0.1688, 0.0004, -0.0041, -0.127, 0.0132, 0.0126, -0.1584, 0.0249, 0.0127, -0.1383, 0.0004, -0.0041, -0.127, 0.0004, -0.0041, -0.177, 0.0132, 0.0126, -0.1584, 0.0249, 0.0127, -0.1383, 0.0064, 0.1201, -0.1546, 0.0181, 0.1201, -0.1345, 0.0249, 0.0127, -0.1383, 0.0132, 0.0126, -0.1584, 0.0064, 0.1201, -0.1546, 0.0428, 0.0141, -0.1487, 0.0249, 0.0127, -0.1383, 0.0181, 0.1201, -0.1345, 0.0428, 0.0141, -0.1487, 0.1265, 0.1293, -0.1973, 0.1334, 0.0218, -0.2011, 0.0428, 0.0141, -0.1487, 0.0181, 0.1201, -0.1345, 0.1265, 0.1293, -0.1973, 0.1217, 0.0218, -0.2213, 0.1265, 0.1293, -0.1973, 0.1149, 0.1292, -0.2174, 0.1217, 0.0218, -0.2213, 0.1334, 0.0218, -0.2011, 0.1265, 0.1293, -0.1973, 0.0181, 0.1201, -0.1345, 0.1149, 0.1292, -0.2174, 0.1265, 0.1293, -0.1973, 0.0181, 0.1201, -0.1345, 0.0064, 0.1201, -0.1546, 0.1149, 0.1292, -0.2174, 0.0311, 0.0141, -0.1688, 0.1334, 0.0218, -0.2011, 0.1217, 0.0218, -0.2213, 0.0311, 0.0141, -0.1688, 0.0428, 0.0141, -0.1487, 0.1334, 0.0218, -0.2011, 0.0064, 0.1201, -0.1546, 0.1217, 0.0218, -0.2213, 0.1149, 0.1292, -0.2174, 0.0064, 0.1201, -0.1546, 0.0311, 0.0141, -0.1688, 0.1217, 0.0218, -0.2213, -0.0996, -0.5433, -1.1225, 0.0284, -0.2852, 0.0002, 0.0285, -0.2852, -1.1433, -0.0996, -0.5433, -1.1225, -0.0996, -0.5433, 0.0139, 0.0284, -0.2852, 0.0002, 0.0285, -0.2852, -1.1433, -0.0005, 0.0053, 0.0006, -0.0005, 0.0053, -1.1468, 0.0285, -0.2852, -1.1433, 0.0284, -0.2852, 0.0002, -0.0005, 0.0053, 0.0006, -0.0005, 0.0053, -1.1468, -0.0178, 0.0246, -0.0864, -0.0221, 0.0264, -1.1467, -0.0005, 0.0053, -1.1468, -0.0005, 0.0053, 0.0006, -0.0178, 0.0246, -0.0864, -0.0996, -0.5433, 0.0139, -0.094, -0.2888, -0.0111, 0.0284, -0.2852, 0.0002, -0.0996, -0.5433, 0.0139, -0.1258, -0.5396, 0.0014, -0.094, -0.2888, -0.0111, -0.0005, 0.0053, -1.1468, -0.094, -0.2888, -1.1272, 0.0285, -0.2852, -1.1433, -0.0005, 0.0053, -1.1468, -0.0663, -0.0025, -1.1362, -0.094, -0.2888, -1.1272, -0.0996, -0.5433, -1.1225, -0.1258, -0.5396, 0.0014, -0.0996, -0.5433, 0.0139, -0.0996, -0.5433, -1.1225, -0.1258, -0.5396, -1.107, -0.1258, -0.5396, 0.0014, -0.0005, 0.0053, 0.0006, -0.0493, 0.0201, -0.0914, -0.0178, 0.0246, -0.0864, -0.0005, 0.0053, 0.0006, -0.0607, -0.0018, -0.0044, -0.0493, 0.0201, -0.0914, 0.0284, -0.2852, 0.0002, -0.0607, -0.0018, -0.0044, -0.0005, 0.0053, 0.0006, 0.0284, -0.2852, 0.0002, -0.094, -0.2888, -0.0111, -0.0607, -0.0018, -0.0044, -0.0221, 0.0264, -1.1467, -0.0663, -0.0025, -1.1362, -0.0005, 0.0053, -1.1468, -0.0221, 0.0264, -1.1467, -0.0524, 0.0219, -1.1409, -0.0663, -0.0025, -1.1362, 0.0285, -0.2852, -1.1433, -0.1258, -0.5396, -1.107, -0.0996, -0.5433, -1.1225, 0.0285, -0.2852, -1.1433, -0.094, -0.2888, -1.1272, -0.1258, -0.5396, -1.107, -0.0178, 0.0246, -0.0864, -0.0524, 0.0219, -1.1409, -0.0221, 0.0264, -1.1467, -0.0178, 0.0246, -0.0864, -0.0493, 0.0201, -0.0914, -0.0524, 0.0219, -1.1409)
-
 [sub_resource type="ArrayMesh" id="ArrayMesh_8h1bk"]
 _surfaces = [{
 "aabb": AABB(-0.254424, -0.592493, -1.02857, 0.28569, 1.14069, 1.0588),
@@ -975,196 +971,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_dxheg")
 
-[sub_resource type="Animation" id="Animation_ddgas"]
-resource_name = "SteeringLeft"
-length = 0.625
-tracks/0/type = "rotation_3d"
-tracks/0/imported = true
-tracks/0/enabled = true
-tracks/0/path = NodePath("Interior/Steering wheel")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, -0.608761, 0, 0, 0.793353, 0.0333333, 1, -0.608761, 0, 0, 0.793353, 0.0666667, 1, -0.608755, 0.00368904, -0.0028307, 0.793345, 0.1, 1, -0.608679, 0.0130901, -0.0100444, 0.793245, 0.133333, 1, -0.608357, 0.0289037, -0.0221786, 0.792827, 0.166667, 1, -0.607527, 0.0505, -0.03875, 0.791744, 0.2, 1, -0.605771, 0.0785358, -0.0602627, 0.789457, 0.233333, 1, -0.602849, 0.110298, -0.0846344, 0.785649, 0.266667, 1, -0.59852, 0.144915, -0.111197, 0.780006, 0.3, 1, -0.592625, 0.181453, -0.139233, 0.772324, 0.366667, 1, -0.576229, 0.255881, -0.196344, 0.750956, 0.4, 1, -0.566353, 0.290929, -0.223237, 0.738085, 0.433333, 1, -0.555932, 0.323267, -0.248052, 0.724505, 0.466667, 1, -0.545481, 0.352212, -0.270262, 0.710884, 0.5, 1, -0.535557, 0.377191, -0.289429, 0.697952, 0.533333, 1, -0.52747, 0.396073, -0.303917, 0.687413, 0.566667, 1, -0.521306, 0.4097, -0.314374, 0.679379, 0.6, 1, -0.517544, 0.417722, -0.320529, 0.674476, 0.625, 1, -0.516048, 0.420854, -0.322932, 0.672526)
-tracks/1/type = "rotation_3d"
-tracks/1/imported = true
-tracks/1/enabled = true
-tracks/1/path = NodePath("SedanA_Body/SedanA_DoorL")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
-
-[sub_resource type="Animation" id="Animation_2wq4l"]
-resource_name = "SteeringRight"
-length = 0.625
-tracks/0/type = "rotation_3d"
-tracks/0/imported = true
-tracks/0/enabled = true
-tracks/0/path = NodePath("Interior/Steering wheel")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, -0.608761, 0, 0, 0.793353, 0.0333333, 1, -0.608761, 0, 0, 0.793353, 0.0666667, 1, -0.608756, -0.00340502, 0.00261276, 0.793346, 0.1, 1, -0.608691, -0.0120741, 0.00926477, 0.793262, 0.133333, 1, -0.608418, -0.0266409, 0.0204423, 0.792906, 0.166667, 1, -0.607714, -0.0465077, 0.0356866, 0.791989, 0.2, 1, -0.606233, -0.0722358, 0.0554284, 0.790058, 0.233333, 1, -0.603775, -0.101339, 0.07776, 0.786855, 0.266667, 1, -0.600142, -0.133034, 0.10208, 0.78212, 0.3, 1, -0.595206, -0.166489, 0.127751, 0.775688, 0.366667, 1, -0.581493, -0.234785, 0.180157, 0.757816, 0.4, 1, -0.573222, -0.267103, 0.204955, 0.747038, 0.433333, 1, -0.564478, -0.297054, 0.227938, 0.735641, 0.466667, 1, -0.555683, -0.323996, 0.248611, 0.724179, 0.5, 1, -0.547305, -0.347373, 0.266548, 0.713261, 0.533333, 1, -0.540451, -0.365142, 0.280183, 0.70433, 0.566667, 1, -0.535214, -0.378016, 0.290062, 0.697505, 0.6, 1, -0.532013, -0.385616, 0.295893, 0.693333, 0.625, 1, -0.530738, -0.388588, 0.298174, 0.691671)
-tracks/1/type = "rotation_3d"
-tracks/1/imported = true
-tracks/1/enabled = true
-tracks/1/path = NodePath("SedanA_Body/SedanA_DoorL")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
-
-[sub_resource type="Animation" id="Animation_dlyj1"]
-resource_name = "SedanA_DoorLAction"
-length = 5.29167
-tracks/0/type = "rotation_3d"
-tracks/0/imported = true
-tracks/0/enabled = true
-tracks/0/path = NodePath("SedanA_Body/SedanA_DoorL")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, -4.32492e-08, 3.11144e-15, -7.19423e-08, 1, 1.33333, 1, -4.32492e-08, 3.11144e-15, -7.19423e-08, 1, 1.36667, 1, -4.31053e-08, -0.0019984, -7.20286e-08, 0.999998, 1.4, 1, -4.27607e-08, -0.00677634, -7.22337e-08, 0.999977, 1.43333, 1, -4.22294e-08, -0.0141155, -7.25456e-08, 0.9999, 1.46667, 1, -4.15249e-08, -0.0237969, -7.29511e-08, 0.999717, 1.5, 1, -4.06606e-08, -0.0356003, -7.34364e-08, 0.999366, 1.53333, 1, -3.96132e-08, -0.0497941, -7.40066e-08, 0.99876, 1.56667, 1, -3.84481e-08, -0.0654462, -7.46186e-08, 0.997856, 1.6, 1, -3.71792e-08, -0.0823316, -7.52588e-08, 0.996605, 1.63333, 1, -3.58211e-08, -0.100224, -7.59146e-08, 0.994965, 1.66667, 1, -3.43888e-08, -0.118895, -7.65741e-08, 0.992907, 1.76667, 1, -2.98459e-08, -0.176832, -7.84564e-08, 0.984241, 1.8, 1, -2.83282e-08, -0.19577, -7.90171e-08, 0.98065, 1.83333, 1, -2.68389e-08, -0.214155, -7.95352e-08, 0.9768, 1.86667, 1, -2.54274e-08, -0.231405, -7.99977e-08, 0.972857, 1.9, 1, -2.41e-08, -0.247474, -8.04076e-08, 0.968894, 1.93333, 1, -2.28761e-08, -0.26216, -8.07643e-08, 0.965024, 1.96667, 1, -2.1775e-08, -0.275267, -8.10681e-08, 0.961368, 2, 1, -2.08162e-08, -0.2866, -8.13196e-08, 0.95805, 2.03333, 1, -2.00856e-08, -0.295187, -8.15031e-08, 0.95544, 2.06667, 1, -1.95536e-08, -0.301412, -8.16323e-08, 0.953494, 2.1, 1, -1.9239e-08, -0.305082, -1.01682e-07, 0.952326, 2.13333, 1, -1.91165e-08, -0.306509, -1.31672e-07, 0.951868, 4.66667, 1, -1.91165e-08, -0.306509, -1.31672e-07, 0.951868, 4.7, 1, -1.95345e-08, -0.303485, -1.31611e-07, 0.952836, 4.73333, 1, -2.05204e-08, -0.296335, -1.31461e-07, 0.955084, 4.76667, 1, -2.2014e-08, -0.285455, -1.31219e-07, 0.958392, 4.8, 1, -2.39543e-08, -0.271235, -1.30879e-07, 0.962513, 4.83333, 1, -2.62795e-08, -0.254064, -1.30432e-07, 0.967187, 4.86667, 1, -2.89992e-08, -0.233798, -1.29854e-07, 0.972285, 4.9, 1, -3.1921e-08, -0.211807, -1.29167e-07, 0.977312, 4.93333, 1, -3.49829e-08, -0.188511, -1.28372e-07, 0.982071, 4.96667, 1, -3.81239e-08, -0.164345, -1.27474e-07, 0.986403, 5, 1, -4.12839e-08, -0.13975, -1.26486e-07, 0.990187, 5.03333, 1, -4.43629e-08, -0.115508, -1.25439e-07, 0.993307, 5.06667, 1, -4.72913e-08, -0.0921906, -1.24365e-07, 0.995741, 5.1, 1, -5.00163e-08, -0.0702588, -1.23294e-07, 0.997529, 5.13333, 1, -5.2487e-08, -0.0501735, -1.22263e-07, 0.998741, 5.16667, 1, -5.46543e-08, -0.0323927, -1.21309e-07, 0.999475, 5.2, 1, -5.63241e-08, -0.0185889, -1.20543e-07, 0.999827, 5.23333, 1, -5.75451e-08, -0.00843654, -1.19965e-07, 0.999964, 5.26667, 1, -5.82705e-08, -0.00238145, -1.19614e-07, 0.999997, 5.29167, 1, -5.85552e-08, 6.9959e-15, -1.19475e-07, 1)
-tracks/1/type = "rotation_3d"
-tracks/1/imported = true
-tracks/1/enabled = true
-tracks/1/path = NodePath("Interior/Steering wheel")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, -0.608761, 0, 0, 0.793353)
-
-[sub_resource type="Animation" id="Animation_g0n5w"]
-resource_name = "SteeringIdle"
-length = 0.625
-tracks/0/type = "rotation_3d"
-tracks/0/imported = true
-tracks/0/enabled = true
-tracks/0/path = NodePath("Interior/Steering wheel")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, -0.608761, 0, 0, 0.793353)
-tracks/1/type = "rotation_3d"
-tracks/1/imported = true
-tracks/1/enabled = true
-tracks/1/path = NodePath("SedanA_Body/SedanA_DoorL")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_bm4ot"]
-_data = {
-"SedanA_DoorLAction": SubResource("Animation_dlyj1"),
-"SteeringIdle": SubResource("Animation_g0n5w"),
-"SteeringLeft": SubResource("Animation_ddgas"),
-"SteeringRight": SubResource("Animation_2wq4l")
-}
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yee2u"]
-animation = &"SedanA_DoorLAction"
-
-[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_2816y"]
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ca06v"]
-animation = &"SteeringIdle"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_k28ol"]
-animation = &"SteeringLeft"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_excib"]
-animation = &"SteeringLeft"
-play_mode = 1
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5ntw5"]
-animation = &"SteeringLeft"
-play_mode = 1
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_p6tj4"]
-animation = &"SteeringRight"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qy3po"]
-animation = &"SteeringRight"
-play_mode = 1
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fjhp5"]
-animation = &"SteeringRight"
-play_mode = 1
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8g38l"]
-advance_mode = 2
-advance_condition = &"left"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8ul2l"]
-advance_mode = 2
-advance_condition = &"right"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lkxi3"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_m1xpk"]
-advance_mode = 2
-advance_condition = &"left"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7iwst"]
-advance_mode = 2
-advance_condition = &"right"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mgmhq"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_myqan"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0o8lb"]
-advance_mode = 2
-advance_condition = &"idle"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rl7jg"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3aqjg"]
-advance_mode = 2
-advance_condition = &"idle"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_74hy2"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_12ups"]
-states/Start/position = Vector2(-60, 100)
-states/SteeringIdle/node = SubResource("AnimationNodeAnimation_ca06v")
-states/SteeringIdle/position = Vector2(487, 100)
-states/SteeringLeft/node = SubResource("AnimationNodeAnimation_k28ol")
-states/SteeringLeft/position = Vector2(590, -50)
-states/SteeringLeftBack/node = SubResource("AnimationNodeAnimation_excib")
-states/SteeringLeftBack/position = Vector2(786, -50)
-states/SteeringLeftBackIdle/node = SubResource("AnimationNodeAnimation_5ntw5")
-states/SteeringLeftBackIdle/position = Vector2(421, 1)
-states/SteeringRight/node = SubResource("AnimationNodeAnimation_p6tj4")
-states/SteeringRight/position = Vector2(590, 205)
-states/SteeringRightBack/node = SubResource("AnimationNodeAnimation_qy3po")
-states/SteeringRightBack/position = Vector2(786, 205)
-states/SteeringRightBackIdle/node = SubResource("AnimationNodeAnimation_fjhp5")
-states/SteeringRightBackIdle/position = Vector2(421, 174)
-transitions = ["SteeringRight", "SteeringRightBack", SubResource("AnimationNodeStateMachineTransition_8g38l"), "SteeringLeft", "SteeringLeftBack", SubResource("AnimationNodeStateMachineTransition_8ul2l"), "Start", "SteeringIdle", SubResource("AnimationNodeStateMachineTransition_lkxi3"), "SteeringIdle", "SteeringLeft", SubResource("AnimationNodeStateMachineTransition_m1xpk"), "SteeringIdle", "SteeringRight", SubResource("AnimationNodeStateMachineTransition_7iwst"), "SteeringLeftBack", "SteeringIdle", SubResource("AnimationNodeStateMachineTransition_mgmhq"), "SteeringRightBack", "SteeringIdle", SubResource("AnimationNodeStateMachineTransition_myqan"), "SteeringLeft", "SteeringLeftBackIdle", SubResource("AnimationNodeStateMachineTransition_0o8lb"), "SteeringLeftBackIdle", "SteeringIdle", SubResource("AnimationNodeStateMachineTransition_rl7jg"), "SteeringRight", "SteeringRightBackIdle", SubResource("AnimationNodeStateMachineTransition_3aqjg"), "SteeringRightBackIdle", "SteeringIdle", SubResource("AnimationNodeStateMachineTransition_74hy2")]
-graph_offset = Vector2(-41, 40)
-
-[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_ixxtt"]
-
-[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_lot2w"]
-
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_r4dda"]
-graph_offset = Vector2(-625.592, 33.1457)
-nodes/Animation/node = SubResource("AnimationNodeAnimation_yee2u")
-nodes/Animation/position = Vector2(-500, 420)
-nodes/OneShot/node = SubResource("AnimationNodeOneShot_2816y")
-nodes/OneShot/position = Vector2(0, 140)
-nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_12ups")
-nodes/StateMachine/position = Vector2(-540, 100)
-nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_ixxtt")
-nodes/TimeScale/position = Vector2(-220, 420)
-nodes/TimeScaleStateMachine/node = SubResource("AnimationNodeTimeScale_lot2w")
-nodes/TimeScaleStateMachine/position = Vector2(-280, 140)
-node_connections = [&"OneShot", 0, &"TimeScaleStateMachine", &"OneShot", 1, &"TimeScale", &"TimeScale", 0, &"Animation", &"TimeScaleStateMachine", 0, &"StateMachine", &"output", 0, &"OneShot"]
-
 [node name="car" type="VehicleBody3D"]
 script = ExtResource("1_w50p8")
 
@@ -1233,7 +1039,7 @@ mesh = SubResource("ArrayMesh_h5jlm")
 skeleton = NodePath("")
 
 [node name="Steering wheel" type="MeshInstance3D" parent="Interior"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.433324, 0.775805, 0.239927)
+transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0.433324, 0.775805, 0.239927)
 mesh = SubResource("ArrayMesh_i0cdv")
 skeleton = NodePath("")
 
@@ -1245,15 +1051,6 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01027, 0.846221, 2.23101)
 mesh = SubResource("ArrayMesh_df6w3")
 skeleton = NodePath("")
-
-[node name="left_door" type="StaticBody3D" parent="SedanA_Body/SedanA_DoorL"]
-collision_layer = 8
-collision_mask = 0
-script = ExtResource("1_gd1ar")
-prompt_message = "Enter"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SedanA_Body/SedanA_DoorL/left_door"]
-shape = SubResource("ConcavePolygonShape3D_dh7s8")
 
 [node name="SedanA_DoorL2" type="MeshInstance3D" parent="SedanA_Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.00966, 0.852308, 0.988918)
@@ -1322,40 +1119,3 @@ suspension_stiffness = 50.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.57628e-07, 0, 4.09782e-08)
 mesh = SubResource("ArrayMesh_wd1ex")
 skeleton = NodePath("")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_bm4ot")
-}
-
-[node name="AnimationTree" type="AnimationTree" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_bm4ot")
-}
-tree_root = SubResource("AnimationNodeBlendTree_r4dda")
-anim_player = NodePath("../AnimationPlayer")
-parameters/OneShot/active = false
-parameters/OneShot/internal_active = false
-parameters/OneShot/request = 0
-parameters/StateMachine/conditions/idle = false
-parameters/StateMachine/conditions/left = false
-parameters/StateMachine/conditions/right = false
-parameters/TimeScale/scale = 1.5
-parameters/TimeScaleStateMachine/scale = 1.8
-
-[node name="AnimationTree" type="AnimationTree" parent="AnimationTree"]
-libraries = {
-"": SubResource("AnimationLibrary_bm4ot")
-}
-tree_root = SubResource("AnimationNodeBlendTree_r4dda")
-anim_player = NodePath("../AnimationPlayer")
-parameters/OneShot/active = false
-parameters/OneShot/internal_active = false
-parameters/OneShot/request = 0
-parameters/StateMachine/conditions/idle = false
-parameters/StateMachine/conditions/left = false
-parameters/StateMachine/conditions/right = false
-parameters/TimeScale/scale = 1.8
-parameters/TimeScaleStateMachine/scale = 1.0
-
-[connection signal="interacted" from="SedanA_Body/SedanA_DoorL/left_door" to="." method="_on_left_door_interacted"]

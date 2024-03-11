@@ -1,3 +1,4 @@
+class_name Car
 extends VehicleBody3D
 
 @onready var body = $SedanA_Body as Node3D
@@ -14,7 +15,6 @@ func _physics_process(delta):
 	if (controlActive):
 		steering = Input.get_axis("moveRight","moveLeft") * 0.3
 		engine_force = Input.get_axis("moveDown","moveUp") * 25
-		animation_tree()
 	pass
 
 func animation_tree():
