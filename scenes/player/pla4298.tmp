@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://7gv6q50fuutj"]
+
+[ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_1w47b"]
+[ext_resource type="PackedScene" uid="uid://dbduds4bsaaby" path="res://Scenes/Bullet/Bullet.tscn" id="2_je25s"]
+[ext_resource type="PackedScene" uid="uid://cyhxn337jc8r3" path="res://player_model.tscn" id="3_b7cqs"]
+[ext_resource type="Script" path="res://Scenes/Player/RayCast3d.gd" id="4_3jijc"]
+[ext_resource type="PackedScene" uid="uid://bxr34nmv5qe2v" path="res://Scenes/GUI.tscn" id="4_18axh"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_emkox"]
+height = 1.80781
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_1w47b")
+_bullet_scene = ExtResource("2_je25s")
+
+[node name="playerModel" parent="." instance=ExtResource("3_b7cqs")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.910592, 0)
+shape = SubResource("CapsuleShape3D_emkox")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.57757, -0.163753)
+
+[node name="Camera3d" type="Camera3D" parent="Head"]
+cull_mask = 1048063
+
+[node name="RayCast3d" type="RayCast3D" parent="Head/Camera3d"]
+transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 0, -0.006, 0)
+visible = false
+target_position = Vector3(60, 0, 0)
+
+[node name="RayAction" type="RayCast3D" parent="Head/Camera3d"]
+collision_mask = 8
+script = ExtResource("4_3jijc")
+
+[node name="GUI" parent="." instance=ExtResource("4_18axh")]

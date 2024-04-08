@@ -1,0 +1,13 @@
+[gd_resource type="Environment" load_steps=4 format=3 uid="uid://sewngcac3atw"]
+
+[ext_resource type="Texture2D" uid="uid://1pqeu7n6xd6v" path="res://addons/sky_boxes/Cold Sunset Equirect.png" id="1_66fe5"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_t3si6"]
+panorama = ExtResource("1_66fe5")
+
+[sub_resource type="Sky" id="1"]
+sky_material = SubResource("PanoramaSkyMaterial_t3si6")
+
+[resource]
+background_mode = 2
+sky = SubResource("1")
